@@ -205,10 +205,10 @@ impl<'a> TokenStream<'a> {
                     )
                 }
             }
-            '_' | 'a'..='z' | 'A'..='Z' => {
+            '~' | '_' | 'a'..='z' | 'A'..='Z' => {
                 while let Some((idx, cur_char)) = iter.next() {
                     match cur_char {
-                        '_' | 'a'..='z' | 'A'..='Z' | '0'..='9' => continue,
+                        '~' | '_' | 'a'..='z' | 'A'..='Z' | '0'..='9' => continue,
                         _ => return self.advance_token(Name, idx),
                     }
                 }
